@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Features | Retreeval - Business Intelligence, Reimagined</title>
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-container').innerHTML = html);
+  </script>
+  
+
+  <!-- Hero -->
+  <section class="text-center py-20 px-6 bg-white">
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Built to Help You Retrieve, Understand & Act</h1>
+    <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10">
+      Whether you’re navigating documents, SQL databases, or raw text — Retreeval gives you superpowers to work smarter.
+    </p>
+    <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700">
+      Get Started Free
+    </a>
+  </section>
+
+  <!-- Features Grid -->
+  <section class="py-20 bg-gray-100 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16">What You Can Do with Retreeval</h2>
+      <div class="grid md:grid-cols-3 gap-12 text-center">
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="assets/img/screenshots/chat-docs.png" class="mx-auto mb-4 rounded" alt="Chat with documents" />
+          <h3 class="text-2xl font-semibold mb-2">Chat with Documents</h3>
+          <p class="text-gray-700">Ask any question from your PDFs, DOCX, or other files and get instant answers — no manual reading.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="assets/img/screenshots/sql-chat.png" class="mx-auto mb-4 rounded" alt="Query SQL with AI" />
+          <h3 class="text-2xl font-semibold mb-2">Chat with Databases</h3>
+          <p class="text-gray-700">Use natural language to query PostgreSQL, MySQL and more. Retreeval handles the SQL for you.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="assets/img/screenshots/summarize.png" class="mx-auto mb-4 rounded" alt="Summarization" />
+          <h3 class="text-2xl font-semibold mb-2">Summarize Content</h3>
+          <p class="text-gray-700">Drop in long text or chats — get smart, concise summaries in seconds.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="assets/img/screenshots/charts.png" class="mx-auto mb-4 rounded" alt="Charts and graphs" />
+          <h3 class="text-2xl font-semibold mb-2">Auto-Generate Charts</h3>
+          <p class="text-gray-700">Create charts and visualizations from natural queries, powered by your connected data.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="assets/img/screenshots/team.png" class="mx-auto mb-4 rounded" alt="Team collaboration" />
+          <h3 class="text-2xl font-semibold mb-2">Collaborate with Teams</h3>
+          <p class="text-gray-700">Share insights, chat sessions, and access across your organization securely.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow">
+          <img src="assets/img/screenshots/security.png" class="mx-auto mb-4 rounded" alt="Enterprise grade" />
+          <h3 class="text-2xl font-semibold mb-2">Enterprise Ready</h3>
+          <p class="text-gray-700">Built with security, scalability, and admin controls to support growing teams and orgs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center py-20 bg-blue-600 text-white">
+    <h2 class="text-4xl font-bold mb-4">Explore the Future of Data Interaction</h2>
+    <p class="text-lg mb-6">Connect your sources, ask questions, and discover insights instantly — Retreeval is ready.</p>
+    <a href="https://app.retreeval.com/register" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100">
+      Create a Free Account
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-10 text-center text-gray-600 text-sm">
+    <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
+    <p class="mt-2">
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a> ·
+      <a href="terms.html" class="hover:underline">Terms of Service</a>
+    </p>
+  </footer>
+
+</body>
+</html>

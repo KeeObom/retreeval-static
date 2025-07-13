@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimonials | Retreeval - Business Intelligence, Reimagined</title>
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-container').innerHTML = html);
+  </script>
+
+  <!-- Hero -->
+  <section class="text-center py-20 px-6 bg-white">
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">What Our Customers Say</h1>
+    <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-gray-700">
+      Trusted by teams worldwide to transform data into insights and action.
+    </p>
+  </section>
+
+  <!-- Testimonials Grid -->
+  <section class="py-20 bg-gray-100 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-3 gap-12 text-center">
+
+        <div class="bg-white p-8 rounded-lg shadow">
+          <svg class="mx-auto mb-4 h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.17 6A5.003 5.003 0 0 0 2 11v7h5v-7a3 3 0 0 1 3-3h1V6H7.17zM19.17 6A5.003 5.003 0 0 0 14 11v7h5v-7a3 3 0 0 1 3-3h1V6h-4.83z"/>
+          </svg>
+          <p class="text-gray-700 italic mb-6">
+            “Retreeval has completely changed the way we work with data. Querying databases with natural language saves us hours every week.”
+          </p>
+          <h4 class="font-semibold text-lg">Amaka Okoro</h4>
+          <p class="text-blue-600 font-medium">Data Analyst, TechCorp</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow">
+          <svg class="mx-auto mb-4 h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.17 6A5.003 5.003 0 0 0 2 11v7h5v-7a3 3 0 0 1 3-3h1V6H7.17zM19.17 6A5.003 5.003 0 0 0 14 11v7h5v-7a3 3 0 0 1 3-3h1V6h-4.83z"/>
+          </svg>
+          <p class="text-gray-700 italic mb-6">
+            “Uploading documents and instantly chatting with their content has empowered our whole team. Retreeval’s AI is incredibly accurate.”
+          </p>
+          <h4 class="font-semibold text-lg">Babatunde Adeyemi</h4>
+          <p class="text-blue-600 font-medium">Operations Manager, FinServe</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-lg shadow">
+          <svg class="mx-auto mb-4 h-8 w-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7.17 6A5.003 5.003 0 0 0 2 11v7h5v-7a3 3 0 0 1 3-3h1V6H7.17zM19.17 6A5.003 5.003 0 0 0 14 11v7h5v-7a3 3 0 0 1 3-3h1V6h-4.83z"/>
+          </svg>
+          <p class="text-gray-700 italic mb-6">
+            “The collaboration features make sharing insights seamless. Plus, the security features give us peace of mind handling sensitive data.”
+          </p>
+          <h4 class="font-semibold text-lg">Chinelo Nwosu</h4>
+          <p class="text-blue-600 font-medium">CTO, Innovate Labs</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center py-20 bg-blue-600 text-white">
+    <h2 class="text-4xl font-bold mb-4">Join Thousands Who Trust Retreeval</h2>
+    <p class="text-lg mb-6">Start turning your data into actionable insights today.</p>
+    <a href="https://app.retreeval.com/register" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100">
+      Get Started Free
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-10 text-center text-gray-600 text-sm">
+    <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
+    <p class="mt-2">
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a> ·
+      <a href="terms.html" class="hover:underline">Terms of Service</a>
+    </p>
+  </footer>
+
+</body>
+</html>

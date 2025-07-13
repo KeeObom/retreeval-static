@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ | Retreeval - Business Intelligence, Reimagined</title>
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+  <style>
+    /* Simple accordion styles */
+    .faq-question {
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .faq-question:hover {
+      background-color: #ebf8ff;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-container').innerHTML = html);
+  </script>
+
+  <!-- Hero -->
+  <section class="text-center py-20 px-6 bg-white">
+    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Frequently Asked Questions</h1>
+    <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10 text-gray-700">
+      Answers to your common questions about Retreeval’s features, pricing, security, and more.
+    </p>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="max-w-4xl mx-auto px-6 pb-20">
+    <div class="space-y-4">
+      
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="faq-question text-xl font-semibold mb-2" tabindex="0" aria-expanded="false" role="button">
+          What types of documents can I upload and chat with?
+        </h3>
+        <p class="faq-answer hidden text-gray-700">
+          You can upload PDFs, Word documents (.doc and .docx), Excel spreadsheets (.xlsx), CSV files, and plain text files (.txt). Our AI indexes the content so you can ask questions naturally.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="faq-question text-xl font-semibold mb-2" tabindex="0" aria-expanded="false" role="button">
+          Which databases does Retreeval support for natural language querying?
+        </h3>
+        <p class="faq-answer hidden text-gray-700">
+          Retreeval supports popular SQL databases including PostgreSQL, MySQL, ClickHouse, Snowflake, BigQuery, and others. We continually expand support for new data sources.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="faq-question text-xl font-semibold mb-2" tabindex="0" aria-expanded="false" role="button">
+          How secure is my data with Retreeval?
+        </h3>
+        <p class="faq-answer hidden text-gray-700">
+          Security is our top priority. We use end-to-end encryption, role-based access controls, and secure cloud infrastructure to protect your documents and queries. Your data is never shared without your consent.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="faq-question text-xl font-semibold mb-2" tabindex="0" aria-expanded="false" role="button">
+          Can I collaborate with my team on insights and chats?
+        </h3>
+        <p class="faq-answer hidden text-gray-700">
+          Absolutely! Retreeval allows you to share chat sessions, documents, and query results securely across your organization to foster teamwork and faster decision-making.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="faq-question text-xl font-semibold mb-2" tabindex="0" aria-expanded="false" role="button">
+          What are the pricing plans and limits on usage?
+        </h3>
+        <p class="faq-answer hidden text-gray-700">
+          We offer tiered pricing plans including Free, Basic, Pro, and Enterprise, with varying storage, user limits, and database connections. Visit our Pricing page for detailed information.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow p-6">
+        <h3 class="faq-question text-xl font-semibold mb-2" tabindex="0" aria-expanded="false" role="button">
+          How do I get started with Retreeval?
+        </h3>
+        <p class="faq-answer hidden text-gray-700">
+          Simply sign up for a free account, upload your documents or connect your databases, and start asking questions right away with our intuitive AI-powered interface.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center py-20 bg-blue-600 text-white">
+    <h2 class="text-4xl font-bold mb-4">Have More Questions?</h2>
+    <p class="text-lg mb-6">Contact our support team anytime at <a href="mailto:support@retreeval.com" class="underline">support@retreeval.com</a>.</p>
+    <a href="https://app.retreeval.com/register" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100">
+      Create a Free Account
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-10 text-center text-gray-600 text-sm">
+    <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
+    <p class="mt-2">
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a> ·
+      <a href="terms.html" class="hover:underline">Terms of Service</a>
+    </p>
+  </footer>
+
+  <script>
+    // Simple accordion functionality
+    document.querySelectorAll('.faq-question').forEach((question) => {
+      question.addEventListener('click', () => {
+        const expanded = question.getAttribute('aria-expanded') === 'true';
+        question.setAttribute('aria-expanded', !expanded);
+        const answer = question.nextElementSibling;
+        if (answer) {
+          answer.classList.toggle('hidden');
+        }
+      });
+      question.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          question.click();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

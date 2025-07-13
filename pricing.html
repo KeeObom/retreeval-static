@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pricing | Retreeval</title>
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-container').innerHTML = html);
+  </script>
+
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6 bg-white">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-4">Simple, Transparent Pricing</h1>
+    <p class="text-xl max-w-2xl mx-auto text-gray-700">Only pay for the features and users you need. Upgrade as your team grows.</p>
+  </section>
+
+  <!-- Pricing Toggle -->
+  <section class="text-center mb-10">
+    <div class="inline-flex bg-gray-200 rounded-full p-1">
+      <button onclick="setDuration('monthly')" id="monthlyBtn" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium">Monthly</button>
+      <button onclick="setDuration('yearly')" id="yearlyBtn" class="px-6 py-2 rounded-full text-gray-700 font-medium">Yearly <span class="text-sm">(20% off)</span></button>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="max-w-6xl mx-auto px-6 grid md:grid-cols-4 gap-8 pb-20">
+    <!-- Free -->
+    <div class="bg-white p-6 rounded-lg shadow text-center">
+      <h3 class="text-2xl font-bold mb-2">Free</h3>
+      <p class="text-3xl font-extrabold text-blue-600 mb-4">₦0</p>
+      <ul class="text-sm text-gray-700 space-y-2 mb-6">
+        <li>1 Database</li>
+        <li>2 Users</li>
+        <li>100MB Storage</li>
+        <li>50MB Chat/user</li>
+        <li>15,000 tokens/user/month</li>
+      </ul>
+      <button disabled class="w-full py-2 rounded bg-gray-300 text-gray-600 cursor-not-allowed">Current Plan</button>
+    </div>
+
+    <!-- Basic -->
+    <div class="bg-white p-6 rounded-lg shadow text-center">
+      <h3 class="text-2xl font-bold mb-2">Basic</h3>
+      <p class="text-3xl font-extrabold text-blue-600 mb-1"><span id="basic-price">₦2,000</span><span class="text-base"> / user</span></p>
+      <ul class="text-sm text-gray-700 space-y-2 mb-6">
+        <li>5 Databases</li>
+        <li>500MB Storage</li>
+        <li>100MB Chat/user</li>
+        <li>50,000 tokens/user/month</li>
+      </ul>
+      <a href="https://app.retreeval.com/register" class="block w-full py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Choose Basic</a>
+    </div>
+
+    <!-- Pro -->
+    <div class="bg-white p-6 rounded-lg shadow text-center border-2 border-blue-600">
+      <h3 class="text-2xl font-bold mb-2">Pro</h3>
+      <p class="text-3xl font-extrabold text-blue-600 mb-1"><span id="pro-price">₦10,000</span><span class="text-base"> / user</span></p>
+      <ul class="text-sm text-gray-700 space-y-2 mb-6">
+        <li>15 Databases</li>
+        <li>5GB Storage</li>
+        <li>200MB Chat/user</li>
+        <li>200,000 tokens/user/month</li>
+      </ul>
+      <a href="https://app.retreeval.com/register" class="block w-full py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Choose Pro</a>
+    </div>
+
+    <!-- Enterprise -->
+    <div class="bg-white p-6 rounded-lg shadow text-center">
+      <h3 class="text-2xl font-bold mb-2">Enterprise</h3>
+      <p class="text-3xl font-extrabold text-blue-600 mb-1"><span id="enterprise-price">₦50,000</span><span class="text-base"> / user</span></p>
+      <ul class="text-sm text-gray-700 space-y-2 mb-6">
+        <li>30 Databases</li>
+        <li>10GB+ Storage</li>
+        <li>500MB Chat/user</li>
+        <li>1,000,000 tokens/user/month</li>
+      </ul>
+      <a href="https://app.retreeval.com/register" class="block w-full py-2 rounded bg-blue-600 text-white hover:bg-blue-700">Choose Enterprise</a>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center py-20 bg-blue-600 text-white">
+    <h2 class="text-4xl font-bold mb-4">Need a Custom Plan?</h2>
+    <p class="text-lg mb-6">We support enterprise integrations, dedicated support, and flexible SLAs.</p>
+    <a href="contact.html" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100">
+      Contact Sales
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-10 text-center text-gray-600 text-sm">
+    <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
+    <p class="mt-2">
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a> ·
+      <a href="terms.html" class="hover:underline">Terms of Service</a>
+    </p>
+  </footer>
+
+  <!-- Pricing JS -->
+  <script>
+    const basicMonthly = 2000;
+    const proMonthly = 10000;
+    const enterpriseMonthly = 50000;
+
+    function formatCurrency(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function setDuration(type) {
+      const isYearly = type === 'yearly';
+      document.getElementById('basic-price').textContent = `₦${formatCurrency(isYearly ? basicMonthly * 12 * 0.8 : basicMonthly)}`;
+      document.getElementById('pro-price').textContent = `₦${formatCurrency(isYearly ? proMonthly * 12 * 0.8 : proMonthly)}`;
+      document.getElementById('enterprise-price').textContent = `₦${formatCurrency(isYearly ? enterpriseMonthly * 12 * 0.8 : enterpriseMonthly)}`;
+      
+      // Update toggle styles
+      document.getElementById('monthlyBtn').classList.toggle('bg-blue-600', !isYearly);
+      document.getElementById('monthlyBtn').classList.toggle('text-white', !isYearly);
+      document.getElementById('monthlyBtn').classList.toggle('text-gray-700', isYearly);
+
+      document.getElementById('yearlyBtn').classList.toggle('bg-blue-600', isYearly);
+      document.getElementById('yearlyBtn').classList.toggle('text-white', isYearly);
+      document.getElementById('yearlyBtn').classList.toggle('text-gray-700', !isYearly);
+    }
+
+    // Default to monthly
+    setDuration('monthly');
+  </script>
+
+</body>
+</html>
