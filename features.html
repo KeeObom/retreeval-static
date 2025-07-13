@@ -11,22 +11,31 @@
 
   <!-- Header -->
   <div id="header-container"></div>
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center space-x-3">
-        <!-- <img src="assets/img/retreeval-logo-and-name.png" alt="Retreeval" class="h-8 w-auto"> -->
-        <img src="assets/img/retreeval-logo-and-name.svg" alt="Retreeval" class="h-8 w-auto">
-      </a>
-      <nav class="space-x-8 hidden md:flex font-medium">
-        <a href="features.html" class="hover:text-blue-600">Features</a>    
-        <a href="connect.html" class="hover:text-blue-600">Connectors</a>
-        <a href="pricing.html" class="hover:text-blue-600">Pricing</a>
-        <a href="testimonials.html" class="hover:text-blue-600">Testimonials</a>
-        <a href="faq.html" class="hover:text-blue-600">FAQ</a>
-        <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">Try for Free</a>
-      </nav>
-    </div>
-  </header>
+  <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(html => {
+        const container = document.getElementById('header-container');
+        container.innerHTML = html;
+  
+        // Manually extract and execute <script> tags inside header.html
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        const scripts = tempDiv.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      })
+      .catch(err => console.error("Failed to load header:", err));
+  </script>
+  <div id="header-container"></div>
+
   <!-- <script>
     fetch('/header.html')
       .then(res => res.text())

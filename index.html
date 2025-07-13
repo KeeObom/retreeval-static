@@ -14,9 +14,34 @@
   <script>
     fetch('/header.html')
       .then(res => res.text())
-      .then(html => document.getElementById('header-container').innerHTML = html)
+      .then(html => {
+        const container = document.getElementById('header-container');
+        container.innerHTML = html;
+  
+        // Manually extract and execute <script> tags inside header.html
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        const scripts = tempDiv.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          if (script.src) {
+            newScript.src = script.src;
+          } else {
+            newScript.textContent = script.textContent;
+          }
+          document.body.appendChild(newScript);
+        });
+      })
       .catch(err => console.error("Failed to load header:", err));
   </script>
+  <div id="header-container"></div>
+  
+  <!-- <script>
+    fetch('/header.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('header-container').innerHTML = html)
+      .catch(err => console.error("Failed to load header:", err));
+  </script> -->
 
   <!-- <script>
     fetch('/header.html')
