@@ -1,17 +1,47 @@
 <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="index.html" class="flex items-center space-x-3">
-        <!-- <img src="assets/img/retreeval-logo-and-name.png" alt="Retreeval" class="h-8 w-auto"> -->
-        <img src="assets/img/retreeval-logo-and-name.svg" alt="Retreeval" class="h-8 w-auto">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center space-x-3">
+      <img src="assets/img/retreeval-logo-and-name.svg" alt="Retreeval" class="h-8 w-auto">
+    </a>
 
-      </a>
-      <nav class="space-x-8 hidden md:flex font-medium">
-        <a href="features.html" class="hover:text-blue-600">Features</a>    
-        <a href="connect.html" class="hover:text-blue-600">Connectors</a>
-        <a href="pricing.html" class="hover:text-blue-600">Pricing</a>
-        <a href="testimonials.html" class="hover:text-blue-600">Testimonials</a>
-        <a href="faq.html" class="hover:text-blue-600">FAQ</a>
-        <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">Try for Free</a>
-      </nav>
-    </div>
-  </header>
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-toggle" class="md:hidden text-gray-700 focus:outline-none">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+           viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Desktop Nav -->
+    <nav class="space-x-8 hidden md:flex font-medium">
+      <a href="features.html" class="hover:text-blue-600">Features</a>
+      <a href="connect.html" class="hover:text-blue-600">Connectors</a>
+      <a href="pricing.html" class="hover:text-blue-600">Pricing</a>
+      <a href="testimonials.html" class="hover:text-blue-600">Testimonials</a>
+      <a href="faq.html" class="hover:text-blue-600">FAQ</a>
+      <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">Try for Free</a>
+    </nav>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="md:hidden px-6 pb-4 hidden">
+    <nav class="flex flex-col space-y-3 font-medium">
+      <a href="features.html" class="hover:text-blue-600">Features</a>
+      <a href="connect.html" class="hover:text-blue-600">Connectors</a>
+      <a href="pricing.html" class="hover:text-blue-600">Pricing</a>
+      <a href="testimonials.html" class="hover:text-blue-600">Testimonials</a>
+      <a href="faq.html" class="hover:text-blue-600">FAQ</a>
+      <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-center hover:bg-blue-700">Try for Free</a>
+    </nav>
+  </div>
+
+  <!-- Toggle Script -->
+  <script>
+    const toggleBtn = document.getElementById("mobile-menu-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+    toggleBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  </script>
+</header>
