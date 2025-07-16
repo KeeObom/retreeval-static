@@ -1,3 +1,63 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-muted font-sans antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-block px-6 py-3 font-medium rounded-lg text-white bg-primary hover:bg-primary-dark transition;
+  }
+
+  .btn-secondary {
+    @apply inline-block px-6 py-3 font-medium rounded-lg text-primary bg-primary-light hover:bg-primary transition;
+  }
+
+  .hero-title {
+    @apply text-5xl md:text-6xl font-heading leading-tight mb-2 text-gray-900;
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-subtle max-w-prose mx-auto mb-8;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-heading text-gray-900 text-center mb-16;
+  }
+
+  .feature-card {
+    @apply bg-surface p-8 rounded-lg shadow-soft text-left border border-border;
+  }
+
+  .feature-card h3 {
+    @apply text-xl font-semibold text-gray-900 mb-2;
+  }
+
+  .feature-card p {
+    @apply text-subtle;
+  }
+
+  .cta-section {
+    @apply text-center py-24 bg-primary-light rounded-lg;
+  }
+
+  .footer {
+    @apply bg-surface text-subtle text-center text-sm py-10 border-t border-border;
+  }
+
+  .footer a {
+    @apply text-primary hover:underline;
+  }
+
+  .connector-card {
+    @apply bg-white text-gray-900 p-4 rounded-xl shadow-sm text-sm font-medium flex items-center gap-3 justify-center;
+  }
+}

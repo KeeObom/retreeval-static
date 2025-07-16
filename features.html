@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Features | Retreeval - Business Intelligence, Reimagined</title>
+  <title>Features | Retreeval</title>
   <link href="assets/css/output.css" rel="stylesheet" />
   <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-background text-muted font-sans">
 
   <!-- Header -->
   <div id="header-container"></div>
@@ -17,105 +18,103 @@
       .then(html => {
         const container = document.getElementById('header-container');
         container.innerHTML = html;
-  
-        // Manually extract and execute <script> tags inside header.html
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = html;
         const scripts = tempDiv.querySelectorAll('script');
         scripts.forEach(script => {
           const newScript = document.createElement('script');
-          if (script.src) {
-            newScript.src = script.src;
-          } else {
-            newScript.textContent = script.textContent;
-          }
+          if (script.src) newScript.src = script.src;
+          else newScript.textContent = script.textContent;
           document.body.appendChild(newScript);
         });
       })
       .catch(err => console.error("Failed to load header:", err));
   </script>
-  <div id="header-container"></div>
 
-  <!-- <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('header-container').innerHTML = html)
-      .catch(err => console.error("Failed to load header:", err));
-  </script> -->
-  
-
-
-  <!-- Hero -->
-  <section class="text-center py-20 px-6 bg-white">
-    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Built to Help You Retrieve, Understand & Act</h1>
-    <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10">
-      Whether you’re navigating documents, SQL databases, or raw text — Retreeval gives you superpowers to work smarter.
-    </p>
-    <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700">
-      Get Started Free
-    </a>
+  <!-- Hero Section -->
+  <section class="text-center py-24 px-6 bg-surface">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="hero-title">Supercharge how your team retrieves and understands data</h1>
+      <p class="hero-subtitle">
+        Retreeval lets you query documents, databases, and notes using natural language — like magic, but built for business.
+      </p>
+      <a href="https://app.retreeval.com/register" class="btn-primary">
+        Get Started Free
+      </a>
+    </div>
   </section>
 
-  <!-- Features Grid -->
-  <section class="py-20 bg-gray-100 px-6">
+  <!-- Feature Grid -->
+  <section class="py-24 px-6 bg-background">
     <div class="max-w-7xl mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-16">What You Can Do with Retreeval</h2>
-      <div class="grid md:grid-cols-3 gap-12 text-center">
+      <h2 class="section-heading">Everything your data team needs</h2>
+      <div class="grid md:grid-cols-3 gap-10 mt-12">
 
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="assets/img/screenshots/chat-docs.png" class="mx-auto mb-4 rounded" alt="Chat with documents" />
-          <h3 class="text-2xl font-semibold mb-2">Chat with Documents</h3>
-          <p class="text-gray-700">Ask any question from your PDFs, DOCX, or other files and get instant answers — no manual reading.</p>
+        <div class="feature-card">
+          <img src="assets/img/undraw_chat-with-ai_ir62.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+          <!-- <img src="assets/img/screenshots/chat-docs.png" class="rounded mb-4" alt="Chat with Documents"> -->
+          <h3>Chat with Documents</h3>
+          <p>Ask questions directly from PDFs, DOCX, or CSVs. Get accurate answers in seconds.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="assets/img/screenshots/sql-chat.png" class="mx-auto mb-4 rounded" alt="Query SQL with AI" />
-          <h3 class="text-2xl font-semibold mb-2">Chat with Databases</h3>
-          <p class="text-gray-700">Use natural language to query PostgreSQL, MySQL and more. Retreeval handles the SQL for you.</p>
+        <div class="feature-card">
+          <img src="assets/img/undraw_typing_gcve.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+          <!-- <img src="assets/img/screenshots/sql-chat.png" class="rounded mb-4" alt="Natural Language SQL"> -->
+          <h3>Natural Language SQL</h3>
+          <p>Query SQL databases like MySQL or Postgres without writing a single line of code.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="assets/img/screenshots/summarize.png" class="mx-auto mb-4 rounded" alt="Summarization" />
-          <h3 class="text-2xl font-semibold mb-2">Summarize Content</h3>
-          <p class="text-gray-700">Drop in long text or chats — get smart, concise summaries in seconds.</p>
+        <div class="feature-card">
+          <!-- <img src="assets/img/screenshots/summarize.png" class="rounded mb-4" alt="AI Summarization"> -->
+          <img src="assets/img/undraw_personal-file_81l0.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+          <h3>AI Summarization</h3>
+          <p>Feed in raw text and get smart summaries that extract key insights for your reports.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="assets/img/screenshots/charts.png" class="mx-auto mb-4 rounded" alt="Charts and graphs" />
-          <h3 class="text-2xl font-semibold mb-2">Auto-Generate Charts</h3>
-          <p class="text-gray-700">Create charts and visualizations from natural queries, powered by your connected data.</p>
+        <div class="feature-card">
+          <!-- <img src="assets/img/screenshots/team.png" class="rounded mb-4" alt="Team Collaboration"> -->
+          <img src="assets/img/undraw_team-up_qeem.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+          <h3>Team Collaboration</h3>
+          <p>Work together across departments with shared chats, permissions, and access controls.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="assets/img/screenshots/team.png" class="mx-auto mb-4 rounded" alt="Team collaboration" />
-          <h3 class="text-2xl font-semibold mb-2">Collaborate with Teams</h3>
-          <p class="text-gray-700">Share insights, chat sessions, and access across your organization securely.</p>
+        <div class="feature-card">
+          <!-- <img src="assets/img/screenshots/charts.png" class="rounded mb-4" alt="Visual Insights"> -->
+          <img src="assets/img/undraw_visual-data_3ghp.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+          <h3>Visual Insights</h3>
+          <p>Automatically generate bar charts, pie charts and timelines from structured queries.</p>
         </div>
 
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="assets/img/screenshots/security.png" class="mx-auto mb-4 rounded" alt="Enterprise grade" />
-          <h3 class="text-2xl font-semibold mb-2">Enterprise Ready</h3>
-          <p class="text-gray-700">Built with security, scalability, and admin controls to support growing teams and orgs.</p>
+        <div class="feature-card">
+          <!-- <img src="assets/img/screenshots/security.png" class="rounded mb-4" alt="Enterprise Grade Security"> -->
+          <img src="assets/img/undraw_secure-server_lz9x.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+          <h3>Enterprise-Grade Security</h3>
+          <p>SSO, data encryption, and audit logs come standard with every plan.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="text-center py-20 bg-blue-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Explore the Future of Data Interaction</h2>
-    <p class="text-lg mb-6">Connect your sources, ask questions, and discover insights instantly — Retreeval is ready.</p>
-    <a href="https://app.retreeval.com/register" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100">
-      Create a Free Account
-    </a>
+  <!-- CTA Section -->
+  <section class="cta-section mt-32 mx-6 rounded-lg">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-heading mb-4">Ready to transform the way your team interacts with data?</h2>
+      <p class="text-lg text-subtle mb-6">
+        Get started with Retreeval for free, and bring AI-powered intelligence to every part of your workflow.
+      </p>
+      <a href="https://app.retreeval.com/register" class="btn-primary">
+        Try Retreeval Free
+      </a>
+    </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-100 py-10 text-center text-gray-600 text-sm">
+  <footer class="footer mt-24">
     <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
     <p class="mt-2">
-      <a href="privacy.html" class="hover:underline">Privacy Policy</a> ·
-      <a href="terms.html" class="hover:underline">Terms of Service</a>
+      <a href="privacy.html">Privacy Policy</a> ·
+      <a href="terms.html">Terms of Service</a>
     </p>
   </footer>
 

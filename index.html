@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Retreeval - Business Intelligence, Reimagined</title>
+  <title>Home | Retreeval - Business Intelligence, Reimagined</title>
   <link href="assets/css/output.css" rel="stylesheet" />
   <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-background text-muted font-sans">
 
   <!-- Header -->
   <div id="header-container"></div>
@@ -17,145 +18,116 @@
       .then(html => {
         const container = document.getElementById('header-container');
         container.innerHTML = html;
-  
-        // Manually extract and execute <script> tags inside header.html
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = html;
         const scripts = tempDiv.querySelectorAll('script');
         scripts.forEach(script => {
           const newScript = document.createElement('script');
-          if (script.src) {
-            newScript.src = script.src;
-          } else {
-            newScript.textContent = script.textContent;
-          }
+          if (script.src) newScript.src = script.src;
+          else newScript.textContent = script.textContent;
           document.body.appendChild(newScript);
         });
       })
       .catch(err => console.error("Failed to load header:", err));
   </script>
-  <div id="header-container"></div>
-  
-  <!-- <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('header-container').innerHTML = html)
-      .catch(err => console.error("Failed to load header:", err));
-  </script> -->
-
-  <!-- <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('header-container').innerHTML = html)
-      .catch(err => console.error("Failed to load header:", err));
-  </script> -->
-  
-
 
   <!-- Hero -->
-  <section class="text-center py-20 px-6 bg-white">
-    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Business Intelligence, Rebuilt for AI</h1>
-    <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10">Connect your documents and databases. Ask questions. Get instant, accurate answers — no SQL needed.</p>
-    <div class="flex flex-col md:flex-row justify-center gap-4 mb-8">
-      <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700">Try for Free</a>
-      <a href="#video" class="inline-flex items-center gap-2 text-blue-600 font-medium hover:underline">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.868v4.264a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-        </svg>
-        Watch a Quick Video
+  <section class="text-center py-24 px-6 bg-surface">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="hero-title">Your Knowledge. One Interface.</h1>
+      <p class="hero-subtitle max-w-2xl mx-auto">
+        Retreeval gives your team one place to chat with files, SQL databases, and data insights — no technical setup required.
+      </p>
+      <a href="https://app.retreeval.com/register" class="btn-primary mt-6">
+        Get Started Free
       </a>
     </div>
-    <img src="assets/img/screenshots/hero.png" alt="Hero Image" class="mx-auto rounded-lg shadow-xl">
+    <img src="assets/img/undraw_around-the-world_vgcy.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+    <!-- <img src="assets/img/screenshots/hero-overview.png" alt="Retreeval Interface" class="mt-16 max-w-4xl mx-auto rounded-xl shadow-xl" /> -->
   </section>
 
-  <!-- Problem Statement -->
-  <section class="bg-gray-100 py-16 px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-4">We know the frustration...</h2>
-    <p class="text-lg max-w-4xl mx-auto text-gray-700">
-      You need answers now, but reports take forever. By the time you get the data, it’s outdated, and decisions are already made. Guesswork replaces insights.
-    </p>
-    <p class="text-lg max-w-4xl mx-auto text-gray-700 mt-4">
-      Retreeval changes that. Ask in plain language, get instant answers, and make decisions confidently — no waiting.
-    </p>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="max-w-7xl mx-auto py-20 px-6">
-    <h2 class="text-4xl font-bold text-center mb-16">Get the Answers You Need</h2>
-    <div class="grid md:grid-cols-3 gap-12">
-      <div class="text-center">
-        <h3 class="text-2xl font-semibold mb-3">Reports</h3>
-        <p class="text-gray-600">Generate reports across your documents and databases — without writing a single line of SQL.</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-2xl font-semibold mb-3">Visualizations</h3>
-        <p class="text-gray-600">Create charts and graphs from your data by simply asking a question.</p>
-      </div>
-      <div class="text-center">
-        <h3 class="text-2xl font-semibold mb-3">Insights</h3>
-        <p class="text-gray-600">Get suggestions and insights automatically from your data and documents.</p>
+  <!-- Why Retreeval -->
+  <section class="py-24 px-6 bg-background">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="section-heading mb-12">Why Teams Use Retreeval</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="bg-surface p-6 rounded-xl shadow-soft text-left">
+          <h3 class="text-xl font-semibold text-foreground mb-3">Chat with Files</h3>
+          <p class="text-subtle">Upload PDFs, Word documents, and spreadsheets — then ask questions and get answers instantly.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl shadow-soft text-left">
+          <h3 class="text-xl font-semibold text-foreground mb-3">Natural Language SQL</h3>
+          <p class="text-subtle">Connect PostgreSQL, MySQL, ClickHouse, and more. Just ask questions, and Retreeval handles the SQL.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl shadow-soft text-left">
+          <h3 class="text-xl font-semibold text-foreground mb-3">Smart Summaries</h3>
+          <p class="text-subtle">Summarize complex documents and queries in a few lines — perfect for busy decision-makers.</p>
+        </div>
       </div>
     </div>
+    <img src="assets/img/undraw_work-chat_hc3y.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
   </section>
 
-  <!-- Chat with Database -->
-  <section class="bg-white py-20 text-center px-6">
-    <h2 class="text-4xl font-bold mb-6">Chat with Your Database</h2>
-    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-6">Interact effortlessly using natural language. Ask questions, visualize answers, and get clarity instantly.</p>
-    <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700">Try it Now</a>
-    <img src="assets/img/screenshots/chat.png" alt="Chat UI" class="mx-auto mt-10 rounded-lg shadow-lg">
-  </section>
-
-  <!-- AI Understanding -->
-  <section class="bg-gray-100 py-20 text-center px-6">
-    <h2 class="text-4xl font-bold mb-6">AI That Understands Your Data</h2>
-    <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-6">Retreeval knows your schema. Ask questions like a human. Let our AI map it to the structure underneath for seamless insights.</p>
-    <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700">Try for Free</a>
-  </section>
-
-  <!-- Connectors -->
-  <section id="connect" class="py-20 px-6 text-center">
-    <h2 class="text-4xl font-bold mb-10">Connect Your Data</h2>
-    <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-12">Supports SQL databases and cloud platforms:</p>
-    <div class="flex flex-wrap justify-center gap-4">
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">Postgres</span>
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">MySQL</span>
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">Snowflake</span>
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">BigQuery</span>
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">Supabase</span>
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">AWS</span>
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">Render</span>
-      <span class="bg-white px-4 py-2 rounded shadow text-sm font-medium">Neon</span>
+  <!-- Screenshot Section -->
+  <section class="py-20 px-6 bg-surface">
+    <div class="max-w-6xl mx-auto text-center">
+      <h2 class="section-heading mb-8">A Single Workspace for Everyone</h2>
+      <p class="text-lg text-subtle max-w-2xl mx-auto mb-10">
+        Whether you're a founder, analyst, or team lead — Retreeval is the fastest way to turn data into decisions.
+      </p>
+      <img src="assets/img/undraw_team-collaboration_phnf.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+      <!-- <img src="assets/img/screenshots/full-interface.png" alt="Unified View" class="mx-auto rounded-xl shadow-xl max-w-5xl" /> -->
     </div>
   </section>
 
   <!-- Testimonials -->
-  <section id="testimonials" class="bg-white py-20 px-6">
-    <h2 class="text-4xl font-bold text-center mb-10">What Our Users Say</h2>
-    <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-      <div class="bg-gray-50 p-6 rounded-lg shadow">
-        <p class="text-gray-700 italic">“Retreeval answered my queries accurately and gave valuable insights. Other tools made it harder — this just worked.”</p>
-        <p class="mt-4 font-semibold text-blue-600">Eduards Normals, Founder of VectorMine</p>
+  <section class="py-24 px-6 bg-background">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      
+      <!-- Testimonials -->
+      <div>
+        <h2 class="section-heading mb-10 text-center md:text-left">What Our Users Say</h2>
+        <div class="space-y-8">
+          <blockquote class="bg-surface p-6 rounded-xl shadow-soft text-left">
+            <p class="text-lg text-foreground">“Retreeval makes working with messy PDF documents and SQL data feel like magic. It saves us hours every week.”</p>
+            <footer class="mt-4 text-sm text-subtle">— Sarah, Strategy Lead</footer>
+          </blockquote>
+          <blockquote class="bg-surface p-6 rounded-xl shadow-soft text-left">
+            <p class="text-lg text-foreground">“I no longer need to open SQL editors or ask engineers. I just type my question, and Retreeval gives me answers and charts.”</p>
+            <footer class="mt-4 text-sm text-subtle">— James, Product Manager</footer>
+          </blockquote>
+        </div>
       </div>
-      <div class="bg-gray-50 p-6 rounded-lg shadow">
-        <p class="text-gray-700 italic">“I’ve tried similar tools — none came close to how quickly Retreeval understood our schema. Extremely impressed.”</p>
-        <p class="mt-4 font-semibold text-blue-600">Aaron Rama, Co-founder & CTO of Keyhook</p>
+  
+      <!-- SVG Illustration -->
+      <div class="flex justify-center">
+        <img 
+          src="assets/img/undraw_anonymous-feedback_wbrj.svg" 
+          alt="Anonymous Feedback Illustration" 
+          class="max-w-sm w-full"
+        />
       </div>
+  
     </div>
   </section>
+  
+  
 
-  <!-- Call to Action -->
-  <section class="text-center py-20 bg-blue-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Start Unlocking Your Data Today</h2>
-    <a href="https://app.retreeval.com/register" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100">Create a Free Account</a>
+  <!-- CTA -->
+  <section class="text-center py-20 bg-primary-700 text-white rounded-t-2xl">
+    <h2 class="text-4xl font-heading mb-4">Start Unlocking Your Data</h2>
+    <p class="text-lg mb-6 max-w-xl mx-auto">Upload documents, connect databases, and get insights instantly.</p>
+    <a href="https://app.retreeval.com/register" class="btn-primary mt-6">
+      Try It Now
+    </a>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-100 py-10 text-center text-gray-600 text-sm">
+  <footer class="bg-surface text-subtle py-10 text-center text-sm">
     <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
     <p class="mt-2">
-      <a href="privacy.html" class="hover:underline">Privacy Policy</a> ·
-      <a href="terms.html" class="hover:underline">Terms of Service</a>
+      <a href="privacy.html" class="hover:underline text-primary-400">Privacy Policy</a> ·
+      <a href="terms.html" class="hover:underline text-primary-400">Terms of Service</a>
     </p>
   </footer>
 

@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Connectors | Retreeval - Business Intelligence, Reimagined</title>
+  <title>Connect | Retreeval - Business Intelligence, Reimagined</title>
   <link href="assets/css/output.css" rel="stylesheet" />
   <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-background text-muted font-sans">
 
   <!-- Header -->
   <div id="header-container"></div>
@@ -17,157 +18,176 @@
       .then(html => {
         const container = document.getElementById('header-container');
         container.innerHTML = html;
-  
-        // Manually extract and execute <script> tags inside header.html
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = html;
         const scripts = tempDiv.querySelectorAll('script');
         scripts.forEach(script => {
           const newScript = document.createElement('script');
-          if (script.src) {
-            newScript.src = script.src;
-          } else {
-            newScript.textContent = script.textContent;
-          }
+          if (script.src) newScript.src = script.src;
+          else newScript.textContent = script.textContent;
           document.body.appendChild(newScript);
         });
       })
       .catch(err => console.error("Failed to load header:", err));
   </script>
-  <div id="header-container"></div>
-  <!-- <div id="header-container"></div>
-  <script>
-    fetch('/header.html')
-      .then(res => res.text())
-      .then(html => document.getElementById('header-container').innerHTML = html)
-      .catch(err => console.error("Failed to load header:", err));
-  </script> -->
-
-  
 
   <!-- Hero -->
-  <section class="text-center py-20 px-6 bg-white">
-    <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-      Connect Your World of Data
-    </h1>
-    <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-10">
-      Retreeval connects to your favorite databases and understands your uploaded documents — all ready to chat with.
-    </p>
-    <a href="https://app.retreeval.com/register" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700">
-      Get Started Free
-    </a>
-  </section>
-
-  <!-- Supported Databases -->
-  <section class="py-20 px-6 bg-gray-100">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-12">Supported Databases</h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-10">
-        Retreeval integrates seamlessly with modern SQL and cloud-native data platforms. No complicated setup required.
-      </p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-center">
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="h-6 w-6" />
-          PostgreSQL
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-6 w-6" />
-          MySQL
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/102983035?s=200&v=4" alt="Turso" class="h-6 w-6 rounded" />
-          Turso
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/52079436?s=200&v=4" alt="ClickHouse" class="h-6 w-6 rounded" />
-          ClickHouse
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/59536646?s=200&v=4" alt="Cloudflare D1" class="h-6 w-6 rounded" />
-          Cloudflare D1
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/54469796?s=200&v=4" alt="Supabase" class="h-6 w-6 rounded" />
-          Supabase
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/59034516?s=200&v=4" alt="Render" class="h-6 w-6 rounded" />
-          Render
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/111789606?s=200&v=4" alt="Neon" class="h-6 w-6 rounded" />
-          Neon
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://cdn.simpleicons.org/digitalocean/0080FF" alt="DigitalOcean" class="h-6 w-6" />
-          DigitalOcean
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" class="h-6 w-6" />
-          AWS
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/892942?s=200&v=4" alt="Snowflake" class="h-6 w-6 rounded" />
-          Snowflake
-        </div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium flex items-center gap-3">
-          <img src="https://avatars.githubusercontent.com/u/6798573?s=200&v=4" alt="BigQuery" class="h-6 w-6 rounded" />
-          BigQuery
-        </div>
+  <section class="py-24 px-6 bg-surface">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+      
+      <!-- Text block -->
+      <div class="md:w-1/2 text-center md:text-left">
+        <h1 class="hero-title">Connect to Your Data Instantly</h1>
+        <p class="hero-subtitle max-w-2xl mx-auto md:mx-0">
+          Retreeval works out of the box with your favorite databases and file formats — giving you instant access to knowledge.
+        </p>
+        <a href="https://app.retreeval.com/register" class="btn-primary mt-6 inline-block">
+          Get Started Free
+        </a>
       </div>
       
-      <!-- <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-center">
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">PostgreSQL</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">MySQL</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">Turso</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">ClickHouse</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">Cloudflare D1</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">Supabase</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">Render</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">Neon</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">DigitalOcean</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">AWS</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">Snowflake</div>
-        <div class="bg-white p-4 rounded shadow text-sm font-medium">BigQuery</div>
-      </div> -->
+      <!-- SVG Illustration -->
+      <div class="md:w-1/2 flex justify-center">
+        <img src="assets/img/undraw_server_9eix.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
+      </div>
+    </div>
+  </section>
+  
+
+
+  <!-- Database Connectors -->
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="section-heading mb-12">Database Connectors</h2>
+      <p class="text-lg text-subtle max-w-2xl mx-auto mb-10">
+        Securely connect with top cloud-native and traditional SQL databases. Retreeval supports many out of the box:
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 justify-center">
+        <!-- Repeat for each database -->
+        <div class="connector-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" class="h-6 w-6" alt="PostgreSQL" />
+          PostgreSQL
+        </div>
+        <div class="connector-card">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="h-6 w-6" alt="MySQL" />
+          MySQL
+        </div>
+        <div class="connector-card">
+          <img src="https://avatars.githubusercontent.com/u/52079436?s=200&v=4" class="h-6 w-6 rounded" alt="ClickHouse" />
+          ClickHouse
+        </div>
+        <div class="connector-card">
+          <img src="https://avatars.githubusercontent.com/u/111789606?s=200&v=4" class="h-6 w-6 rounded" alt="Neon" />
+          Neon
+        </div>
+        <div class="connector-card">
+          <img src="https://avatars.githubusercontent.com/u/59536646?s=200&v=4" class="h-6 w-6 rounded" alt="Cloudflare D1" />
+          Cloudflare D1
+        </div>
+        <div class="connector-card">
+          <img src="https://avatars.githubusercontent.com/u/54469796?s=200&v=4" class="h-6 w-6 rounded" alt="Supabase" />
+          Supabase
+        </div>
+        <div class="connector-card">
+          <img src="https://cdn.simpleicons.org/digitalocean/0080FF" class="h-6 w-6" alt="DigitalOcean" />
+          DigitalOcean
+        </div>
+        <div class="connector-card">
+          <img src="https://avatars.githubusercontent.com/u/892942?s=200&v=4" class="h-6 w-6 rounded" alt="Snowflake" />
+          Snowflake
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Supported File Types -->
-  <section class="py-20 px-6 bg-white">
+  <!-- Uploadable File Types -->
+  <section class="py-20 px-6 bg-surface">
     <div class="max-w-6xl mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-12">Document Types You Can Upload</h2>
-      <p class="text-lg text-gray-700 max-w-2xl mx-auto mb-10">
-        Upload a wide range of files and let Retreeval’s AI extract insights and answer questions — instantly.
+      <h2 class="section-heading mb-12">Files You Can Upload</h2>
+      <p class="text-lg text-subtle max-w-2xl mx-auto mb-10">
+        Retreeval supports the most common formats for knowledge sharing and analysis.
       </p>
       <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
-        <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded shadow">PDF (.pdf)</span>
-        <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded shadow">Word Document (.doc, .docx)</span>
-        <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded shadow">Excel Spreadsheet (.xlsx)</span>
-        <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded shadow">CSV (.csv)</span>
-        <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded shadow">Plain Text (.txt)</span>
+        <span class="bg-gray-100 text-gray-900 px-4 py-2 rounded-full shadow-sm">PDF</span>
+        <span class="bg-gray-100 text-gray-900 px-4 py-2 rounded-full shadow-sm">DOCX</span>
+        <span class="bg-gray-100 text-gray-900 px-4 py-2 rounded-full shadow-sm">XLSX</span>
+        <span class="bg-gray-100 text-gray-900 px-4 py-2 rounded-full shadow-sm">CSV</span>
+        <span class="bg-gray-100 text-gray-900 px-4 py-2 rounded-full shadow-sm">TXT</span>
       </div>
-      <img src="assets/img/screenshots/upload-docs.png" alt="Upload Examples" class="mx-auto mt-12 rounded-lg shadow-lg max-w-4xl" />
+      
+
+      
+      <img src="assets/img/undraw_server-push_1lbi.svg" alt="Connect Illustration" class="max-w-xs mx-auto mt-1" />
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="text-center py-20 bg-blue-600 text-white">
-    <h2 class="text-4xl font-bold mb-4">Get Connected in Minutes</h2>
-    <p class="text-lg mb-6">Whether it's files or databases — Retreeval makes integration effortless.</p>
-    <a href="https://app.retreeval.com/register" class="inline-block bg-white text-blue-600 font-semibold px-8 py-3 rounded-lg shadow hover:bg-gray-100">
-      Try It Now
+  <section class="text-center py-20 bg-primary-700 text-white rounded-t-2xl">
+    <h2 class="text-4xl font-heading mb-4">Seamless Connections. Smarter Results.</h2>
+    <p class="text-lg mb-6 max-w-xl mx-auto">Whether uploading files or integrating databases, Retreeval is ready.</p>
+    <a href="https://app.retreeval.com/register" class="btn-primary mt-6">
+      Start for Free
     </a>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-100 py-10 text-center text-gray-600 text-sm">
-    <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
-    <p class="mt-2">
-      <a href="privacy.html" class="hover:underline">Privacy Policy</a> ·
-      <a href="terms.html" class="hover:underline">Terms of Service</a>
-    </p>
+  <footer class="bg-surface border-t border-border text-subtle pt-20 pb-12 text-sm">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
+  
+      <!-- Brand & Tagline -->
+      <div class="space-y-3">
+        <h3 class="text-2xl font-bold text-foreground">Retreeval</h3>
+        <p class="leading-relaxed text-base text-subtle">
+          Empowering teams with instant, intelligent business insights.
+        </p>
+      </div>
+  
+      <!-- Explore -->
+      <div class="self-start">
+        <h4 class="text-lg font-semibold mb-4 text-foreground">Explore</h4>
+        <ul class="space-y-2 text-base">
+          <li><a href="features.html" class="hover:text-primary">Features</a></li>
+          <li><a href="pricing.html" class="hover:text-primary">Pricing</a></li>
+          <li><a href="connect.html" class="hover:text-primary">Custom Plans</a></li>
+          <li><a href="testimonials.html" class="hover:text-primary">Testimonials</a></li>
+          <li><a href="faq.html" class="hover:text-primary">FAQs</a></li>
+        </ul>
+      </div>
+
+  
+      <!-- Legal & Social -->
+      <div class="self-start">
+        <h4 class="text-lg font-semibold mb-4 text-foreground">Legal</h4>
+        <ul class="space-y-2 text-base mb-6">
+          <li><a href="privacy.html" class="hover:text-primary">Privacy Policy</a></li>
+          <li><a href="terms.html" class="hover:text-primary">Terms of Service</a></li>
+        </ul>
+  
+        <!-- Social Icons -->
+        <div class="flex gap-4">
+          <a href="https://instagram.com/retreeval" target="_blank" aria-label="Instagram" class="hover:text-primary">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5a4.25 4.25 0 0 0 4.25-4.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zm5.25-.75a.75.75 0 1 1 0 1.5.75.75 0 0 1 0-1.5z"/></svg>
+          </a>
+          <a href="https://twitter.com/retreeval" target="_blank" aria-label="Twitter" class="hover:text-primary">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19.633 7.997q.014.2.014.6 0 2.485-1.713 5.352T12.16 18q-3.253 0-5.882-1.737.38.044.828.044 2.705 0 4.61-1.657-1.263-.023-2.19-.772t-1.14-1.84q.35.053.642.053.456 0 .89-.117-1.338-.264-2.206-1.24t-.867-2.267v-.044q.775.43 1.66.467-.775-.518-1.24-1.394T6.5 6.497q0-1.055.553-1.934 1.45 1.788 3.534 2.864t4.373 1.152q-.09-.453-.09-.91 0-1.655 1.168-2.823T19.13 3q1.59 0 2.66 1.16.962-.188 1.823-.51-.333 1.044-1.3 1.637.854-.098 1.563-.42-.59.923-1.39 1.63z"/></svg>
+          </a>
+          <a href="https://linkedin.com/company/retreeval" target="_blank" aria-label="LinkedIn" class="hover:text-primary">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6a2.5 2.5 0 0 1 2.48-2.5zM3 8h4v12H3V8zm7 0h3.64v1.71h.05c.51-.96 1.77-1.97 3.64-1.97 3.9 0 4.62 2.56 4.62 5.89V20h-4v-5.45c0-1.3-.03-2.98-1.82-2.98s-2.1 1.43-2.1 2.9V20h-4V8z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bottom Bar -->
+    <div class="mt-12 border-t border-border pt-6 text-center text-xs text-subtle">
+      <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
+    </div>
   </footer>
+  
+  
+   
+  
+ 
 
 </body>
 </html>
