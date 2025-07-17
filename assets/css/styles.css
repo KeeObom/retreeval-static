@@ -4,53 +4,82 @@
 
 @layer base {
   body {
-    @apply bg-background text-muted font-sans antialiased;
+    @apply bg-background text-muted font-sans antialiased dark:bg-gray-950 dark:text-gray-200;
   }
 
+  /* Make headings adapt to dark mode */
   h1, h2, h3, h4 {
-    @apply font-heading text-gray-900;
+    @apply font-heading text-gray-900 dark:text-white;
+  }
+
+  /* Define explicit dark mode background variants without circular @apply */
+  .bg-background {
+    background-color: theme('colors.background');
+  }
+  .dark .bg-background {
+    background-color: theme('colors.gray.950');
+  }
+
+  .bg-surface {
+    background-color: theme('colors.surface');
+  }
+  .dark .bg-surface {
+    background-color: theme('colors.gray.900');
   }
 }
 
 @layer components {
   .btn-primary {
     @apply inline-block px-6 py-3 font-medium rounded-lg text-white bg-primary hover:bg-primary-dark transition;
+    /* Blue buttons usually contrast well on both themes, so no changes here unless needed */
   }
 
   .btn-secondary {
-    @apply inline-block px-6 py-3 font-medium rounded-lg text-primary bg-primary-light hover:bg-primary transition;
+    @apply inline-block px-6 py-3 font-medium rounded-lg text-primary bg-primary-light hover:bg-primary transition dark:bg-primary/20 dark:text-primary dark:hover:bg-primary/30;
   }
 
   .hero-title {
-    @apply text-5xl md:text-6xl font-heading leading-tight mb-2 text-gray-900;
+    @apply text-5xl md:text-6xl font-heading leading-tight mb-2 text-gray-900 dark:text-white;
   }
 
   .hero-subtitle {
-    @apply text-xl md:text-2xl text-subtle max-w-prose mx-auto mb-8;
+    @apply text-xl md:text-2xl text-subtle max-w-prose mx-auto mb-8 dark:text-gray-400;
   }
 
   .section-heading {
-    @apply text-3xl md:text-4xl font-heading text-gray-900 text-center mb-16;
+    @apply text-3xl md:text-4xl font-heading text-gray-900 text-center mb-16 dark:text-white;
   }
 
   .feature-card {
-    @apply bg-surface p-8 rounded-lg shadow-soft text-left border border-border;
+    @apply p-8 rounded-lg shadow-soft text-left border border-border dark:text-gray-200 dark:border-gray-700;
+    background-color: theme('colors.surface');
+  }
+  .dark .feature-card {
+    background-color: theme('colors.gray.900');
   }
 
   .feature-card h3 {
-    @apply text-xl font-semibold text-gray-900 mb-2;
+    @apply text-xl font-semibold text-gray-900 mb-2 dark:text-white;
   }
 
   .feature-card p {
-    @apply text-subtle;
+    @apply text-subtle dark:text-gray-400;
   }
 
   .cta-section {
-    @apply text-center py-24 bg-primary-light rounded-lg;
+    @apply text-center py-24 rounded-lg;
+    background-color: theme('colors.primary.light');
+  }
+  .dark .cta-section {
+    background-color: theme('colors.primary.DEFAULT', 'rgba(0, 97, 255, 0.125)');
   }
 
   .footer {
-    @apply bg-surface text-subtle text-center text-sm py-10 border-t border-border;
+    @apply text-subtle text-center text-sm py-10 border-t border-border dark:text-gray-400 dark:border-gray-700;
+    background-color: theme('colors.surface');
+  }
+  .dark .footer {
+    background-color: theme('colors.gray.950');
   }
 
   .footer a {
@@ -58,6 +87,10 @@
   }
 
   .connector-card {
-    @apply bg-white text-gray-900 p-4 rounded-xl shadow-sm text-sm font-medium flex items-center gap-3 justify-center;
+    @apply text-gray-900 p-4 rounded-xl shadow-sm text-sm font-medium flex items-center gap-3 justify-center dark:text-gray-100;
+    background-color: theme('colors.white');
+  }
+  .dark .connector-card {
+    background-color: theme('colors.gray.800');
   }
 }

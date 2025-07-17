@@ -1,10 +1,9 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
+const colors = require('tailwindcss/colors');
+
 module.exports = {
-  darkMode: 'media', // ⬅️ This uses the system setting (prefers-color-scheme)
-  content: [
-    "./*.html",
-    "./**/*.html"
-  ],
+  darkMode: 'class',
+  content: ["./*.html", "./**/*.html"],
   theme: {
     extend: {
       fontFamily: {
@@ -15,12 +14,12 @@ module.exports = {
         background: '#ffffff',
         surface: '#f7f9fb',
         primary: {
-          DEFAULT: '#0061ff', // Dropbox Blue
+          DEFAULT: '#0061ff',
           light: '#e7f0fd',
           dark: '#004ecc',
         },
-        subtle: '#6b7280', // muted text
-        muted: '#374151',
+        subtle: colors.gray[600], // Light mode muted
+        muted: colors.gray[500],  // Darker by default for better contrast in dark mode
         border: '#e5e7eb',
       },
       borderRadius: {
