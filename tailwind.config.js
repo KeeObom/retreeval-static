@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'media', // ⬅️ This uses the system setting (prefers-color-scheme)
   content: [
     "./*.html",
     "./**/*.html"
