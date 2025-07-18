@@ -14,9 +14,9 @@ module.exports = {
         background: '#ffffff',
         surface: '#f7f9fb',
         primary: {
-          DEFAULT: '#0061ff',
-          light: '#e7f0fd',
-          dark: '#004ecc',
+          DEFAULT: '#6C63FF', // Changed from #0061ff to purple
+          light: '#dcdafd',   // Optional: lighter shade of purple before was '#e7f0fd'
+          dark: '#544eea',    // Optional: darker shade of purple before was '#004ecc'
         },
         subtle: colors.gray[600], // Light mode muted
         muted: colors.gray[500],  // Darker by default for better contrast in dark mode
