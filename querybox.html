@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>QueryBox | Retreeval</title>
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link rel="icon" href="assets/img/retreeval-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-background text-muted font-sans">
+
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        const container = document.getElementById('header-container');
+        container.innerHTML = html;
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        const scripts = tempDiv.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          if (script.src) newScript.src = script.src;
+          else newScript.textContent = script.textContent;
+          document.body.appendChild(newScript);
+        });
+      })
+      .catch(err => console.error("Failed to load header:", err));
+  </script>
+
+
+  <!-- Hero Section -->
+  <section class="text-center py-24 px-6 bg-surface">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="hero-title">QueryBox — Chat Across Organizations</h1>
+      <p class="hero-subtitle">
+        The fastest way for anyone to ask questions across teams, companies, and knowledge bases.  
+        QueryBox connects you instantly to the data you need.
+      </p>
+      <a href="https://querybox.app" class="btn-primary mt-6" target="_blank" rel="noopener noreferrer">
+        Try QueryBox Live
+      </a>
+    </div>
+  </section>
+
+  <!-- Visitors Section -->
+  <section class="py-20 px-6 bg-background">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="section-heading mb-6">For Visitors</h2>
+      <p class="text-lg text-subtle max-w-2xl mx-auto mb-10">
+        As a visitor, you can instantly chat with assistants from different organizations.  
+        No setup needed — just type your question and get answers from company-approved knowledge.  
+        Think of it as a way to explore a company's expertise in real-time, before signing up.
+      </p>
+  
+      <h3 class="text-xl font-semibold mb-4">Watch Demo: Chatting with a Company Assistant</h3>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/iuS3_aHt4PU"
+          title="Visitor Demo — Chatting with a Company Assistant"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Organizations Section -->
+  <section class="py-20 px-6 bg-surface">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="section-heading mb-6">For Organizations</h2>
+      <p class="text-lg text-subtle max-w-2xl mx-auto mb-10">
+        Organizations can upload their documents, connect data sources, and instantly make them available to be queried.  
+        With QueryBox, your knowledge becomes accessible to your team, customers, or even the public — with full control over what’s shared.  
+        This means anyone can chat with your company knowledge base, without you needing to build custom tools.
+      </p>
+  
+      <h3 class="text-xl font-semibold mb-4">Watch Demo: Managing Your Company Dashboard</h3>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/VilWuin9CIs"
+          title="Organization Demo — Managing Your Company Dashboard"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-24 px-6 bg-surface">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="section-heading text-center mb-12">What Makes QueryBox Powerful</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+
+        <div class="feature-card text-center">
+          <img src="assets/img/querybox_home.png" alt="Feature 1" class="mx-auto mb-4 max-w-xs" />
+          <h3>Cross-Org Search</h3>
+          <p>Query across multiple organizations securely, with the right permissions applied automatically.</p>
+          <a href="https://querybox.app" class="btn-primary" target="_blank" rel="noopener noreferrer">
+            Quick Search
+          </a>
+        </div>
+
+        <div class="feature-card text-center">
+          <img src="assets/img/querybox_chat_2.png" alt="Feature 2" class="mx-auto mb-4 max-w-xs" />
+          <h3>Instant Answers</h3>
+          <p>No more digging through files. Get AI-powered answers in real time, directly from connected knowledge bases.</p>
+        </div>
+
+        <div class="feature-card text-center">
+          <img src="assets/img/querybox_dashboard.png" alt="Feature 3" class="mx-auto mb-4 max-w-xs" />
+          <h3>Seamless Set-Up</h3>
+          <p>Use QueryBox Dashboard and setup your Organization easily <strong>querybox.app</strong>.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="text-center py-24 px-6 bg-background">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-4xl font-heading mb-4">Ready to experience QueryBox?</h2>
+      <p class="text-lg text-subtle mb-6">
+        Whether you're a visitor exploring a company assistant or an organization sharing knowledge — QueryBox makes it seamless.  
+        Try it now and see how fast questions turn into answers.
+      </p>
+      <a href="https://querybox.app" class="btn-primary" target="_blank" rel="noopener noreferrer">
+        Launch QueryBox
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface border-t border-border text-subtle pt-20 pb-12 text-sm">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-left">
+  
+      <!-- Brand & Tagline -->
+      <div class="space-y-3">
+        <h3 class="text-2xl font-bold text-foreground">Retreeval</h3>
+        <p class="leading-relaxed text-base text-subtle">
+          Empowering teams with instant, intelligent business insights.
+        </p>
+      </div>
+  
+      <!-- Explore -->
+      <div class="self-start">
+        <h4 class="text-lg font-semibold mb-4 text-foreground">Explore</h4>
+        <ul class="space-y-2 text-base">
+          <li><a href="features.html" class="hover:text-primary">Features</a></li>
+          <li><a href="pricing.html" class="hover:text-primary">Pricing</a></li>
+          <li><a href="connect.html" class="hover:text-primary">Custom Plans</a></li>
+          <li><a href="testimonials.html" class="hover:text-primary">Testimonials</a></li>
+          <li><a href="faq.html" class="hover:text-primary">FAQs</a></li>
+        </ul>
+      </div>
+  
+      <!-- Legal & Social -->
+      <div class="self-start">
+        <h4 class="text-lg font-semibold mb-4 text-foreground">Legal</h4>
+        <ul class="space-y-2 text-base mb-6">
+          <li><a href="privacy.html" class="hover:text-primary">Privacy Policy</a></li>
+          <li><a href="terms.html" class="hover:text-primary">Terms of Service</a></li>
+        </ul>
+  
+        <!-- Social Icons -->
+        <div class="flex gap-4">
+          <a href="https://instagram.com/retreeval" target="_blank" aria-label="Instagram" class="hover:text-primary">IG</a>
+          <a href="https://twitter.com/retreeval" target="_blank" aria-label="Twitter" class="hover:text-primary">TW</a>
+          <a href="https://linkedin.com/company/retreeval" target="_blank" aria-label="LinkedIn" class="hover:text-primary">IN</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bottom Bar -->
+    <div class="mt-12 border-t border-border pt-6 text-center text-xs text-subtle">
+      <p>© 2025 Retreeval Technologies Limited. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
