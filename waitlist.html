@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join the Waitlist | Retreeval</title>
+  <link href="assets/css/output.css" rel="stylesheet" />
+  <link rel="icon" href="assets/img/logo_purp_only.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-background text-muted font-sans">
+
+  <!-- Header -->
+  <div id="header-container"></div>
+  <script>
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        const container = document.getElementById('header-container');
+        container.innerHTML = html;
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = html;
+        const scripts = tempDiv.querySelectorAll('script');
+        scripts.forEach(script => {
+          const newScript = document.createElement('script');
+          if (script.src) newScript.src = script.src;
+          else newScript.textContent = script.textContent;
+          document.body.appendChild(newScript);
+        });
+      })
+      .catch(err => console.error("Failed to load header:", err));
+  </script>
+
+  <!-- Hero / Waitlist CTA -->
+  <section class="text-center py-24 px-6 bg-surface">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-5xl font-bold mb-6">Join the Retreeval Waitlist</h1>
+      <p class="text-lg text-subtle mb-8">
+        Be the first to get early access to Retreeval — your private AI workspace for files, SQL databases, and team insights.
+      </p>
+
+      <!-- Waitlist Form -->
+      <form id="waitlist-form" class="max-w-xl mx-auto space-y-4 bg-background p-8 rounded-xl shadow-soft">
+        <div>
+          <label for="name" class="block mb-1 text-left font-medium">Name (optional)</label>
+          <input type="text" id="name" name="name" placeholder="Your name" class="w-full border border-border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary" />
+        </div>
+        <div>
+          <label for="email" class="block mb-1 text-left font-medium">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required class="w-full border border-border rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-primary" />
+        </div>
+        <button type="submit" class="btn-primary w-full py-3 text-lg">Join Waitlist</button>
+        <p id="form-message" class="mt-4 text-sm text-subtle"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Optional: Some hero image -->
+  <div class="max-w-lg mx-auto mt-12">
+    <img src="assets/img/undraw_waitlist.svg" alt="Join Waitlist Illustration" class="w-full" />
+  </div>
+
+  <script>
+    const form = document.getElementById('waitlist-form');
+    const messageEl = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+
+      if (!email) {
+        messageEl.textContent = "Email is required!";
+        messageEl.classList.add("text-red-500");
+        return;
+      }
+
+      messageEl.textContent = "Submitting...";
+      messageEl.classList.remove("text-red-500");
+      messageEl.classList.add("text-muted");
+
+      try {
+        const res = await fetch("https://api.retreeval.com/waitlist/join", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ name: name || null, email })
+        });
+
+        if (!res.ok) {
+          const errorData = await res.json();
+          throw new Error(errorData.detail || "Failed to join waitlist");
+        }
+
+        form.reset();
+        messageEl.textContent = "✅ Successfully joined the waitlist!";
+        messageEl.classList.remove("text-muted");
+        messageEl.classList.add("text-green-500");
+      } catch (err) {
+        console.error(err);
+        messageEl.textContent = "⚠️ " + err.message;
+        messageEl.classList.remove("text-muted");
+        messageEl.classList.add("text-red-500");
+      }
+    });
+  </script>
+
+</body>
+</html>
